@@ -41,6 +41,7 @@ def find_pet_by_name(pet_shop, name)
      return pet
    end
  end
+ return nil
 end
 
 def remove_pet_by_name(pet_shop, name)
@@ -58,7 +59,7 @@ end
 
 def remove_customer_cash(customer, amount)
 #update the actual value in the Hash.new { |hash, key| hash[key] =  }
-  customer[:cash] -=100
+  customer[:cash] -= amount
 end
 
 def customer_pet_count(customer)
@@ -72,12 +73,22 @@ end
 
 #OPTIONAL
 
-def customer_can_afford_pet(customer, pet)
-price = pet[:price]
-available_funds = customer[:cash]
-  if  available_funds >= price
-    return true
-  else
-    return false
-  end
-end
+# def customer_can_afford_pet(customer, pet)
+# price = pet[:price]
+# available_funds = customer[:cash]
+#   if  available_funds >= price
+#     return true
+#   else
+#     return false
+#   end
+# end
+#
+# def sell_pet_to_customer shop, pet, customer
+#   if pet != nil && customer_can_afford_pet(customer, pet[:name]) == true
+#     increase_pets_sold(shop, 1)
+#     remove_pet_by_name(shop, pet)
+#     add_pet_to_customer(customer, pet)
+#     add_or_remove_cash(shop, pet[:price])
+#     remove_customer_cash(customer, pet[:price])
+#   end
+# end
